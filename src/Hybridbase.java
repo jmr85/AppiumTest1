@@ -8,7 +8,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 
-public class base {
+public class Hybridbase {
 
 	public static AndroidDriver<AndroidElement> capabilities(String device) throws MalformedURLException {
 		// TODO Auto-generated method stub
