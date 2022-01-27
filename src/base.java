@@ -10,7 +10,7 @@ import io.appium.java_client.remote.MobileCapabilityType;
 
 public class base {
 
-	public static AndroidDriver<AndroidElement> capabilities(String device) throws MalformedURLException {
+	public static AndroidDriver<AndroidElement> capabilities() throws MalformedURLException {
 		// TODO Auto-generated method stub
 		//chrome - url
 		//App .apk, device, 4723
@@ -18,14 +18,11 @@ public class base {
 		//AndroidDriver
 		
 		File appDir = new File("src");
-		File app = new File(appDir, "ApiDemos-debug.apk");
+		File app = new File(appDir, "General-Store.apk");
 		DesiredCapabilities cap = new DesiredCapabilities();
-		if(device.equals("emulator")) {
-			cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Nexus 10 API 29");//Emulator
-		}else if(device.equals("real")) {
-			cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Device");//Real device
-		}
+		cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Nexus 10 API 29");//Emulator
 		cap.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
+		cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 14);//14s
 		// UI Automator -> Android apps
 		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
 		

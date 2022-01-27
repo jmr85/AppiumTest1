@@ -12,7 +12,7 @@ import static io.appium.java_client.touch.offset.ElementOption.element;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 
-public class swipedemo extends base{
+public class swipedemo extends Hybridbase{
 
 	public static void main(String[] args) throws MalformedURLException {
 		// TODO Auto-generated method stub
