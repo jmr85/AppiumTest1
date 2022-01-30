@@ -8,7 +8,7 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 
-public class ecommerce_tc_3 extends base{
+public class ecommerce_tc_4 extends base{
 
 	public static void main(String[] args) throws MalformedURLException, InterruptedException {
 		// TODO Auto-generated method stub
@@ -23,23 +23,10 @@ public class ecommerce_tc_3 extends base{
 		//driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textMatches(\"Jordan 6 Rings\").instance(0))"));    
 		driver.findElement(By.xpath("//*[@text='Argentina']")).click();
 		driver.findElement(By.id("com.androidsample.generalstore:id/btnLetsShop")).click();
-		driver.findElement(MobileBy.AndroidUIAutomator(
-				"new UiScrollable(new UiSelector().resourceId(\"com.androidsample.generalstore:id/rvProductList\")).scrollIntoView(new UiSelector().textMatches(\"Jordan 6 Rings\").instance(0))"));
 		
-		int count = driver.findElements(By.id("com.androidsample.generalstore:id/productName")).size();
-		
-		for (int i = 0 ; i < count; i++) {
-			String text = driver.findElements(By.id("com.androidsample.generalstore:id/productName")).get(i).getText();
-			System.out.println(text);
-			if(text.equalsIgnoreCase("Jordan 6 Rings")) {
-				driver.findElements(By.id("com.androidsample.generalstore:id/productAddCart")).get(i).click();
-				break;
-			}		
-		}
+		driver.findElements(By.xpath("//*[@text='ADD TO CART']")).get(0).click();
+		driver.findElements(By.xpath("//*[@text='ADD TO CART']")).get(0).click();
 		driver.findElement(By.id("com.androidsample.generalstore:id/appbar_btn_cart")).click();
-		String lastpageText = driver.findElement(By.id("com.androidsample.generalstore:id/productName")).getText();
-		
-		Assert.assertEquals("Jordan 6 Rings", lastpageText);
 	}
 
 }
