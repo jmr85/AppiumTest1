@@ -1,23 +1,19 @@
 import java.net.MalformedURLException;
-import java.net.URL;
 
-import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.By;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
-import io.appium.java_client.remote.MobileCapabilityType;
 
-
-public class browse {
+public class browse extends baseChrome {
 
 	public static void main(String[] args) throws MalformedURLException {
 		// TODO Auto-generated method stub
-		AndroidDriver<AndroidElement> driver;
-		DesiredCapabilities cap = new DesiredCapabilities();
-		cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Nexus 10 API 29");//Emulator
-		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
-		cap.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");
-		driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), cap);
+		AndroidDriver<AndroidElement> driver = capabilities();
+		driver.get("https://rahulshettyacademy.com/angularAppdemo/");
+		driver.findElement(By.cssSelector(".navbar-toggler")).click();
+		driver.findElement(By.cssSelector("a[href*='products']")).click();
+
 	}
 
 }
